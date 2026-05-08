@@ -3,7 +3,7 @@ const io = require('socket.io')(process.env.PORT || 3000, {
 });
 
 io.on('connection', (socket) => {
-  console.log('Nuovo dispositivo connesso');
+  console.log('Dispositivo connesso');
 
   // Gestione Reset
   socket.on('send_reset', () => {
@@ -11,7 +11,7 @@ io.on('connection', (socket) => {
     io.emit('receive_reset', newStartTime);
   });
 
-  // Gestione Fullscreen
+  // Gestione Fullscreen (Questo permette al telefono di comandare Vivi)
   socket.on('send_fullscreen', () => {
     io.emit('receive_fullscreen');
   });
